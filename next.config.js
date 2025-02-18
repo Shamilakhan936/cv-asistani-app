@@ -15,7 +15,29 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    domains: ['res.cloudinary.com']
   },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '2mb'
+    },
+    mdxRs: true
+  },
+  webpack: (config) => {
+    config.resolve = {
+      ...config.resolve,
+      fallback: {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+        os: false
+      }
+    };
+    return config;
+  },
+  typescript: {
+    ignoreBuildErrors: false
+  }
 }
 
 module.exports = nextConfig 

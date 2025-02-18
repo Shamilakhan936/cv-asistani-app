@@ -11,13 +11,13 @@
 # next.js
 /.next/
 /out/
-
-# production
 /build
+.next
 
 # misc
 .DS_Store
 *.pem
+Thumbs.db
 
 # debug
 npm-debug.log*
@@ -25,8 +25,10 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
 .env
+.env*.local
+.env.development
+.env.production
 
 # vercel
 .vercel
@@ -38,10 +40,33 @@ next-env.d.ts
 # IDE
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
 
-# Cloudinary uploads
+# Supabase
+.supabase/
+
+# Clerk
+.clerk/
+
+# Cloudinary
 /public/uploads/
+/public/temp/
+
+# Logs
+logs
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Temporary files
 *.tmp
 *.temp
+.cache/

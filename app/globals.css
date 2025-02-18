@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-size: 14px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply text-gray-600 bg-gray-50;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-900 font-bold tracking-tight;
+  }
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: #0066cc;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 186 100% 42%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
+    --primary-dark: #0052a3;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 186 100% 42%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 262 83% 58%;
+  }
+
+  * {
+    @apply border-gray-200;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight;
+    line-height: 1.1;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl font-bold tracking-tight;
+    line-height: 1.2;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-lg shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-blue-600 bg-blue-50 border border-transparent rounded-lg shadow-sm hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200;
+  }
+
+  .feature-card {
+    @apply relative p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100;
+  }
+
+  .card {
+    @apply p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-center border border-gray-200;
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+  }
+
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  
+  .bg-primary-dark {
+    background-color: var(--primary-dark);
+  }
+  
+  .hover\:bg-primary-dark:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .text-primary {
+    color: var(--primary);
+  }
+  
+  .hover\:text-primary-dark:hover {
+    color: var(--primary-dark);
+  }
+  
+  .border-primary {
+    border-color: var(--primary);
+  }
+}
+
+.prose img {
+  margin: 2rem auto;
+  border-radius: 0.5rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.prose pre {
+  background-color: rgb(30, 41, 59);
+  color: rgb(226, 232, 240);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.prose code {
+  background-color: rgb(241, 245, 249);
+  color: rgb(30, 41, 59);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.prose pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Form elements */
+.form-select {
+  @apply block w-full px-3 py-2 text-base border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary;
+}
+
+.form-radio {
+  @apply w-4 h-4 text-primary border-gray-300 focus:ring-primary;
+}
+
+/* Loading spinner */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
