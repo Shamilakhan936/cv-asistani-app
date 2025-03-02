@@ -36,7 +36,7 @@ export default function AdminPhotosPage() {
 
     const interval = setInterval(() => {
       fetchOperations();
-    }, 10000);
+    }, 30000);
 
     return () => clearInterval(interval);
   }, []);
@@ -189,9 +189,6 @@ export default function AdminPhotosPage() {
                 Durum
               </th>
               <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                İptal Süresi
-              </th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Not
               </th>
               <th scope="col" className="relative px-6 py-3">
@@ -247,13 +244,6 @@ export default function AdminPhotosPage() {
                         <PencilIcon className="h-4 w-4" />
                       </button>
                     </div>
-                  )}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {canCancelOperation(operation) ? (
-                    <span className="text-green-600">İptal Edilebilir</span>
-                  ) : (
-                    <span className="text-red-600">Süre Doldu</span>
                   )}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">

@@ -14,8 +14,14 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        port: '',
+        pathname: '/**',
+      },
     ],
-    domains: ['res.cloudinary.com']
+    domains: ['res.cloudinary.com', 'placehold.co']
   },
   experimental: {
     serverActions: {

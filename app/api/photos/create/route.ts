@@ -2,11 +2,15 @@ import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/prisma';
 import { randomUUID } from 'crypto';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
+    logger.info('Yeni fotoğraf yükleme isteği alındı');
+
     const session = await auth();
     if (!session?.userId) {
+      logger.warn('Yetkisiz erişim denemesi');
       return NextResponse.json(
         { error: 'Yetkisiz erişim' },
         { status: 401 }
@@ -17,6 +21,7 @@ export async function POST(request: Request) {
     const { photos, styles } = body;
 
     if (!photos || !Array.isArray(photos) || photos.length === 0) {
+      logger.warn('Geçersiz fotoğraf verisi', { photos });
       return NextResponse.json(
         { error: 'Geçerli fotoğraf verileri bulunamadı' },
         { status: 400 }
@@ -29,11 +34,14 @@ export async function POST(request: Request) {
     });
 
     if (!user) {
+      logger.error('Kullanıcı bulunamadı', { clerkUserId: session.userId });
       return NextResponse.json(
         { error: 'Kullanıcı bulunamadı' },
         { status: 404 }
       );
     }
+
+    logger.debug('Yeni operation oluşturuluyor', { userId: user.id });
 
     // Yeni operation oluştur
     const operation = await prisma.photoOperation.create({
@@ -64,13 +72,18 @@ export async function POST(request: Request) {
 
     await Promise.all(photoPromises);
 
+    logger.info('Fotoğraf yükleme başarılı', { 
+      operationId: operation.id,
+      photoCount: photos.length 
+    });
+
     return NextResponse.json({
       success: true,
       operationId: operation.id,
       photoCount: photos.length
     });
   } catch (error) {
-    console.error('Fotoğraf kaydetme hatası:', error);
+    logger.error('Fotoğraf kaydetme hatası', { error });
     return NextResponse.json(
       { error: 'Fotoğraflar kaydedilirken bir hata oluştu' },
       { status: 500 }

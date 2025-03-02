@@ -3,6 +3,7 @@ import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import { trTR } from '@clerk/localizations';
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 const sora = Sora({
@@ -44,6 +45,7 @@ export default function RootLayout({
       <html lang="tr" className={`${inter.className} ${sora.variable} font-sora antialiased`}>
         <body className="font-sora antialiased">
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

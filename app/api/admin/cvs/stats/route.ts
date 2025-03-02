@@ -2,42 +2,53 @@ import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { requireAdmin } from '@/lib/auth';
 
+interface User {
+  id: string;
+  name: string | null;
+  email: string | null;
+  cvs: Array<{
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+  }>;
+}
+
 export async function GET() {
   try {
     // Admin kontrolü
     await requireAdmin();
 
-    const users = await prisma.user.findMany({
+    const stats = await prisma.user.findMany({
       select: {
         id: true,
         name: true,
         email: true,
-        createdAt: true,
-        _count: {
+        cvs: {
           select: {
-            cvs: true,
-            optimizations: true
+            id: true,
+            createdAt: true,
+            updatedAt: true
           }
         }
-      },
-      orderBy: {
-        createdAt: 'desc'
       }
     });
 
-    console.log('API Response:', JSON.stringify(users, null, 2));
+    // Array formatında dönüştür
+    const formattedStats = stats.map((user: User) => ({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      cvCount: user.cvs.length,
+      lastCvDate: user.cvs.length > 0 
+        ? user.cvs[user.cvs.length - 1].updatedAt 
+        : null
+    }));
 
-    return NextResponse.json(users);
+    return NextResponse.json(formattedStats);
   } catch (error) {
-    console.error('CV istatistikleri getirme hatası:', error);
-    if (error instanceof Error && error.message === 'Yetkisiz erişim') {
-      return NextResponse.json(
-        { error: error.message },
-        { status: 401 }
-      );
-    }
+    console.error('Stats error:', error);
     return NextResponse.json(
-      { error: 'CV istatistikleri getirilemedi' },
+      { error: 'Internal server error' },
       { status: 500 }
     );
   }

@@ -136,17 +136,31 @@ model VerificationToken {
 }
 
 model CV {
-  id            String           @id @default(cuid())
-  title         String
-  content       String
-  published     Boolean          @default(false)
-  createdAt     DateTime         @default(now())
-  updatedAt     DateTime         @updatedAt
-  userId        String           @db.Uuid
+  id          String           @id @default(cuid())
+  title       String
+  userId      String           @db.Uuid
+  templateId  String
+  content     Json     // Tüm CV içeriği JSON olarak saklanır
+  isPublished Boolean          @default(false)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
   optimizations CvOptimization[]
-  user          User             @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("cvs")
+}
+
+model CVTemplate {
+  id          String   @id @default(cuid())
+  name        String
+  category    String
+  description String?
+  previewUrl  String
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("cv_templates")
 }
 
 model PhotoOperation {

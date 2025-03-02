@@ -2,29 +2,56 @@
 
 Bu proje, kullanıcıların profesyonel CV fotoğrafları oluşturmasına yardımcı olan bir web uygulamasıdır. Yapay zeka teknolojilerini kullanarak, kullanıcıların yüklediği fotoğrafları profesyonel iş fotoğraflarına dönüştürür.
 
-## Özellikler
+## 🚀 Özellikler
 
-- Kullanıcı kimlik doğrulama (NextAuth.js)
-- Fotoğraf yükleme ve işleme
-- AI destekli fotoğraf dönüşümü
-- Özelleştirilebilir kıyafet, poz ve arka plan seçenekleri
-- Yüksek kaliteli çıktı
-- Cloudinary entegrasyonu ile optimize edilmiş görüntü depolama
+- **Kullanıcı Yönetimi**
+  - Clerk ile güvenli kimlik doğrulama
+  - Rol tabanlı yetkilendirme (Admin/User)
+  - Sosyal medya ile giriş
+  
+- **Fotoğraf İşleme**
+  - AI destekli fotoğraf dönüşümü
+  - Özelleştirilebilir kıyafet, poz ve arka plan seçenekleri
+  - Yüksek kaliteli çıktı
+  - İşlem durumu takibi
+  
+- **Admin Paneli**
+  - Kullanıcı yönetimi
+  - Fotoğraf işlemlerini izleme
+  - İstatistikler ve raporlama
+  
+- **Depolama ve Optimizasyon**
+  - Cloudinary entegrasyonu
+  - Optimize edilmiş görüntü depolama
+  - Güvenli dosya yönetimi
 
-## Teknolojiler
+## 🛠️ Teknolojiler
 
-- Next.js 14
-- TypeScript
-- NextAuth.js
-- Replicate AI API
-- Cloudinary
-- TailwindCSS
+- **Frontend**
+  - Next.js 14
+  - TypeScript
+  - TailwindCSS
+  - Headless UI
+  
+- **Backend**
+  - Supabase (PostgreSQL)
+  - Prisma ORM
+  - Clerk Authentication
+  
+- **AI ve Medya**
+  - Replicate AI API
+  - Cloudinary
+  
+- **Deployment**
+  - Vercel
+  - Supabase Cloud
 
-## Kurulum
+## 📦 Kurulum
 
 1. Repoyu klonlayın:
 ```bash
-git clone https://github.com/yourusername/cv-asistani.git
+git clone https://github.com/fuzulibinek/cv-asistani.git
+cd cv-asistani
 ```
 
 2. Bağımlılıkları yükleyin:
@@ -32,37 +59,81 @@ git clone https://github.com/yourusername/cv-asistani.git
 npm install
 ```
 
-3. Gerekli ortam değişkenlerini ayarlayın:
-```env
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your-secret
-
-DATABASE_URL=your-database-url
-
-REPLICATE_API_TOKEN=your-replicate-token
-
-CLOUDINARY_CLOUD_NAME=your-cloud-name
-CLOUDINARY_API_KEY=your-api-key
-CLOUDINARY_API_SECRET=your-api-secret
+3. `.env.example` dosyasını `.env` olarak kopyalayın ve gerekli değişkenleri ayarlayın:
+```bash
+cp .env.example .env
 ```
 
-4. Geliştirme sunucusunu başlatın:
+4. Veritabanını hazırlayın:
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+5. Geliştirme sunucusunu başlatın:
 ```bash
 npm run dev
 ```
 
-## Kullanım
+## 🔑 Ortam Değişkenleri
 
-1. Hesap oluşturun veya giriş yapın
-2. Fotoğraf yükleyin
-3. Kıyafet, poz ve arka plan seçeneklerini belirleyin
-4. İşlemi başlatın ve profesyonel fotoğrafınızı oluşturun
-5. Sonucu indirin
+Aşağıdaki ortam değişkenlerini `.env` dosyanızda ayarlamanız gerekmektedir:
 
-## Lisans
+```env
+# Database (Supabase)
+DATABASE_URL=
+DIRECT_URL=
 
-MIT
+# Clerk Auth
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+CLERK_WEBHOOK_SECRET=
 
-## İletişim
+# Replicate AI
+REPLICATE_API_TOKEN=
 
-Proje sorularınız için issues bölümünü kullanabilirsiniz.
+# Cloudinary
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+```
+
+## 📚 API Endpoints
+
+### 📸 Fotoğraf İşlemleri
+- `POST /api/photos/create` - Yeni fotoğraf işlemi oluştur
+- `GET /api/user/photos` - Kullanıcının fotoğraflarını getir
+- `GET /api/user/photos/pending` - Bekleyen işlemleri getir
+- `POST /api/photos/cancel/{photoId}` - İşlemi iptal et
+
+### 👤 Kullanıcı İşlemleri
+- `GET /api/user/cvs` - Kullanıcının CV'lerini getir
+- `POST /api/webhook/clerk` - Clerk webhook handler
+
+### 🔐 Admin İşlemleri
+- `GET /api/admin/stats` - Genel istatistikler
+- `GET /api/admin/users` - Tüm kullanıcıları listele
+- `GET /api/admin/photos` - Tüm fotoğraf işlemlerini getir
+
+## 🔒 Güvenlik
+
+- Tüm API endpoint'leri Clerk authentication ile korunmaktadır
+- Admin endpoint'leri rol bazlı yetkilendirme ile korunmaktadır
+- Hassas bilgiler `.env` dosyasında saklanmaktadır
+- Rate limiting uygulanmıştır
+
+## 🤝 Katkıda Bulunma
+
+1. Bu repoyu fork edin
+2. Yeni bir branch oluşturun (`git checkout -b feature/amazing-feature`)
+3. Değişikliklerinizi commit edin (`git commit -m 'feat: add amazing feature'`)
+4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
+5. Pull Request oluşturun
+
+## 📝 Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
+
+## 📫 İletişim
+
+Proje sorularınız için [issues](https://github.com/fuzulibinek/cv-asistani/issues) bölümünü kullanabilirsiniz.

@@ -2,25 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-size: 14px;
-}
-
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  body {
-    @apply text-gray-600 bg-gray-50;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply text-gray-900 font-bold tracking-tight;
-  }
-
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -28,161 +10,362 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: #0066cc;
+    --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 186 100% 42%;
+    --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 262 83% 58%;
+    --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 262 83% 58%;
-    --radius: 0.75rem;
-    --primary-dark: #0052a3;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 262 83% 58%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 186 100% 42%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 262 83% 58%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 262 83% 58%;
+  html {
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  * {
-    @apply border-gray-200;
+  body {
+    @apply bg-gray-50;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    overflow-x: hidden;
   }
 
-  h1 {
-    @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight;
-    line-height: 1.1;
-  }
-
-  h2 {
-    @apply text-2xl sm:text-3xl font-bold tracking-tight;
-    line-height: 1.2;
-  }
-
-  p {
-    @apply leading-relaxed;
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-900 font-bold tracking-tight;
   }
 }
 
-@layer components {
-  .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-lg shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200;
-  }
-
-  .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-blue-600 bg-blue-50 border border-transparent rounded-lg shadow-sm hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200;
-  }
-
-  .feature-card {
-    @apply relative p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100;
-  }
-
-  .card {
-    @apply p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-center border border-gray-200;
-    background-color: hsl(var(--card));
-    color: hsl(var(--card-foreground));
-  }
-
-  .bg-primary {
-    background-color: var(--primary);
-  }
-  
-  .bg-primary-dark {
-    background-color: var(--primary-dark);
-  }
-  
-  .hover\:bg-primary-dark:hover {
-    background-color: var(--primary-dark);
-  }
-  
-  .text-primary {
-    color: var(--primary);
-  }
-  
-  .hover\:text-primary-dark:hover {
-    color: var(--primary-dark);
-  }
-  
-  .border-primary {
-    border-color: var(--primary);
-  }
-}
-
-.prose img {
-  margin: 2rem auto;
-  border-radius: 0.5rem;
-  max-width: 100%;
-  height: auto;
-}
-
-.prose pre {
-  background-color: rgb(30, 41, 59);
-  color: rgb(226, 232, 240);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  overflow-x: auto;
-}
-
-.prose code {
-  background-color: rgb(241, 245, 249);
-  color: rgb(30, 41, 59);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-}
-
-.prose pre code {
-  background-color: transparent;
-  color: inherit;
+/* Ana Düzen */
+body {
+  margin: 0;
   padding: 0;
-  border-radius: 0;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  overflow-x: hidden;
 }
 
-/* Form elements */
-.form-select {
-  @apply block w-full px-3 py-2 text-base border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary;
+/* Üst Menü */
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.form-radio {
-  @apply w-4 h-4 text-primary border-gray-300 focus:ring-primary;
+.header-content {
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Loading spinner */
-.animate-spin {
-  animation: spin 1s linear infinite;
+/* Yatay Navigasyon */
+.steps-nav {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+.steps-container {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 12px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.steps-container::-webkit-scrollbar {
+  display: none;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  height: 36px;
+  border-radius: 6px;
+  background: transparent;
+  color: #4b5563;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  flex-shrink: 0;
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.step-title {
+  font-weight: 500;
+}
+
+.step-item:hover {
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+.step-item.active {
+  background: #eef2ff;
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.step-item.active .step-number {
+  background: #3b82f6;
+  color: white;
+}
+
+.step-item.completed {
+  color: #059669;
+}
+
+.step-item.completed .step-number {
+  background: #059669;
+  color: white;
+}
+
+/* Ana İçerik Düzeni */
+.cv-edit-container {
+  position: fixed;
+  top: 112px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.cv-content-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  gap: 20px;
+  height: 100%;
+}
+
+/* Form Bölümü */
+.cv-form-section {
+  width: 320px;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.form-section {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.form-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.form-section::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.form-section::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.form-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.form-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical;
+  transition: all 0.2s;
+}
+
+.form-textarea:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.form-hint {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* Preview Bölümü */
+.cv-preview-section {
+  flex: 1;
+  min-width: 0;
+  background: #f3f4f6;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.preview-container {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f3f4f6;
+}
+
+.cv-preview {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  margin: 0 auto;
+  transform: scale(0.6);
+  transform-origin: top center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cv-preview section {
+  page-break-inside: avoid;
+}
+
+.cv-preview.zoomed {
+  transform: scale(0.8);
+}
+
+/* Yazdırma Stilleri */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-header,
+  .steps-nav,
+  .cv-form-section {
+    display: none;
+  }
+
+  .cv-edit-container {
+    position: static;
+    padding: 0;
+    display: block;
+  }
+
+  .cv-preview-section {
+    border: none;
+    overflow: visible;
+  }
+
+  .preview-container {
+    padding: 0;
+    background: white;
+  }
+
+  .cv-preview {
+    width: 210mm;
+    min-height: 297mm;
+    transform: none;
+    box-shadow: none;
+    padding: 30px;
+  }
+
+  .cv-preview section {
+    page-break-inside: avoid;
   }
 }
+
