@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@clerk/nextjs';
 import { 
   PhotoFeatures, 
   Gender, 
@@ -28,8 +28,8 @@ import {
   BACKGROUNDS
 } from '../../../constants/photo';
 
-export default function AIPortraitPage() {
-  const { data: session, status } = useSession();
+export default function AiileFotoPage() {
+  const { isLoaded, userId } = useAuth();
   const router = useRouter();
   
   // Dosya yükleme state'leri
@@ -49,16 +49,16 @@ export default function AIPortraitPage() {
     tie: 'burgundy' as TieColor,
     sweater: 'smoke' as SweaterColor
   });
-  const [pose, setPose] = useState<Pose>('classic');
+  const [pose, setPose] = useState<Pose>('professional');
   const [background, setBackground] = useState<Background>('studio-white');
 
   // Oturum kontrolü
-  if (status === 'loading') {
+  if (!isLoaded) {
     return <div className="container mx-auto p-8">Yükleniyor...</div>;
   }
 
-  if (!session) {
-    router.push('/auth/login');
+  if (!userId) {
+    router.push('/sign-in');
     return null;
   }
 
@@ -72,13 +72,11 @@ export default function AIPortraitPage() {
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
-      // Dosya tipi kontrolü
       if (!selectedFile.type.startsWith('image/')) {
         setError('Lütfen geçerli bir fotoğraf dosyası seçin');
         return;
       }
       
-      // Dosya boyutu kontrolü (5MB)
       if (selectedFile.size > 5 * 1024 * 1024) {
         setError('Fotoğraf boyutu 5MB\'dan küçük olmalıdır');
         return;
@@ -101,13 +99,11 @@ export default function AIPortraitPage() {
 
     const droppedFile = e.dataTransfer.files?.[0];
     if (droppedFile) {
-      // Dosya tipi kontrolü
       if (!droppedFile.type.startsWith('image/')) {
         setError('Lütfen geçerli bir fotoğraf dosyası seçin');
         return;
       }
       
-      // Dosya boyutu kontrolü (5MB)
       if (droppedFile.size > 5 * 1024 * 1024) {
         setError('Fotoğraf boyutu 5MB\'dan küçük olmalıdır');
         return;
@@ -181,7 +177,7 @@ export default function AIPortraitPage() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
         </button>
-        <h1 className="text-3xl font-bold">AI ile Profesyonel Fotoğraf</h1>
+        <h1 className="text-3xl font-bold">AI ile Fotoğraf İyileştirme</h1>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8">
@@ -466,7 +462,7 @@ export default function AIPortraitPage() {
                   İşleniyor...
                 </span>
               ) : (
-                'Profesyonel Fotoğraf Oluştur'
+                'Fotoğrafı İyileştir'
               )}
             </button>
           </div>
