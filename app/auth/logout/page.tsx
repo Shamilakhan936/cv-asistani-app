@@ -1,14 +1,21 @@
 'use client';
 
 import { useClerk } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function LogoutPage() {
   const { signOut } = useClerk();
+  const router = useRouter();
   
   useEffect(() => {
-    signOut(() => window.location.href = '/');
-  }, [signOut]);
+    const performSignOut = async () => {
+      await signOut();
+      router.push('/');
+    };
+    
+    performSignOut();
+  }, [signOut, router]);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
