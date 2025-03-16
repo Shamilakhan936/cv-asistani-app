@@ -5,4 +5,6 @@ app/api/
 app/admin/blog/yeni/page.tsx
 app/blog/
 app/lider/
-components/ 
+components/
+app/admin/cv-templates/
+app/dashboard/cv/ 
