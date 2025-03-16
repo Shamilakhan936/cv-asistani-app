@@ -2,4 +2,5 @@ app/admin/blog/
 app/auth/
 app/dashboard/photo/
 app/api/
-app/admin/blog/yeni/page.tsx 
+app/admin/blog/yeni/page.tsx
+app/blog/ 
