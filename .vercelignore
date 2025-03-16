@@ -4,4 +4,5 @@ app/dashboard/photo/
 app/api/
 app/admin/blog/yeni/page.tsx
 app/blog/
-app/lider/ 
+app/lider/
+components/ 
