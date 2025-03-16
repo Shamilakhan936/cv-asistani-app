@@ -10,7 +10,20 @@ export default function NewBlogPost() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Blog post creation logic here
+    try {
+      const response = await fetch('/api/blog', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title, content }),
+      });
+
+      if (!response.ok) throw new Error('Failed to create post');
+      router.push('/admin/blog');
+    } catch (error) {
+      console.error('Error creating post:', error);
+    }
   };
 
   return (
