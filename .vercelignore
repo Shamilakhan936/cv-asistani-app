@@ -9,4 +9,5 @@ components/
 app/admin/cv-templates/
 app/dashboard/cv/
 app/dashboard/cvs/
-app/admin/cvs/ 
+app/admin/cvs/
+app/admin/etiketler/ 
