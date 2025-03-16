@@ -3,4 +3,5 @@ app/auth/
 app/dashboard/photo/
 app/api/
 app/admin/blog/yeni/page.tsx
-app/blog/ 
+app/blog/
+app/lider/ 
