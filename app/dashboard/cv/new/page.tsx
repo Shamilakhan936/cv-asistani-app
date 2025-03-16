@@ -190,10 +190,51 @@ export default function NewCVPage() {
 
   if (templates.length === 0) {
     return (
-      <div className="container mx-auto py-10">
-        <h1 className="text-3xl font-bold mb-6 bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#d946ef] inline-block text-transparent bg-clip-text">CV Şablonları</h1>
-        <div className="text-center py-10">
-          <p className="text-lg text-gray-500">Henüz hiç şablon bulunmuyor.</p>
+      <div className="relative py-10 px-4 overflow-hidden bg-gradient-to-b from-[#6366f1]/5 via-white to-white">
+        <div className="container mx-auto">
+          <div className="mb-6">
+            <Button 
+              variant="outline" 
+              className="flex items-center gap-2" 
+              onClick={() => router.push('/dashboard')}
+            >
+              <ArrowLeftIcon />
+              <span>Panel'e Dön</span>
+            </Button>
+          </div>
+          
+          <div className="flex justify-between items-center mb-4">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#d946ef] inline-block text-transparent bg-clip-text">CV Şablonları</h1>
+          </div>
+          
+          <div className="mt-12 text-center py-16 px-4 bg-white/50 backdrop-blur-xl rounded-2xl shadow-lg border border-gray-100/50">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="w-20 h-20 mx-auto text-gray-300 mb-6" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <h2 className="text-2xl font-bold text-gray-700 mb-3">Şablonlar Hazırlanıyor</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+              CV şablonlarımız çok yakında burada olacak. Modern, profesyonel ve çeşitli tasarımlarla özgeçmişinizi kolayca oluşturabileceksiniz.
+            </p>
+            <div className="flex justify-center gap-3">
+              {categoryOrder.map((category) => (
+                <div
+                  key={category}
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-300 bg-white/80 text-gray-700 border border-gray-200"
+                >
+                  <span className="flex items-center justify-center w-6 h-6">
+                    {categoryIcons[category]}
+                  </span>
+                  <span className="font-medium">{category}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -248,11 +289,10 @@ export default function NewCVPage() {
               className="bg-white/50 backdrop-blur-xl rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-100/50 overflow-hidden"
             >
               <div className="relative h-[300px] w-full">
-                <Image
+                <img
                   src={template.previewUrl}
                   alt={template.name}
-                  fill
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">

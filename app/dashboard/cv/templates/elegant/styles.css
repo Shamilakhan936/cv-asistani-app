@@ -1,0 +1,49 @@
+:root {
+  --font-rubik: 'Rubik', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --color-light: #2ea1ff;
+  --color-darkbg: #22405c;
+  --color-grayIcon: #b4b9bc;
+  --color-textColor: #384347;
+  --color-whiteText: #e6ecfa;
+}
+
+.font-rubik {
+  font-family: var(--font-rubik);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+.text-light {
+  color: var(--color-light);
+}
+
+.bg-light {
+  background-color: var(--color-light);
+}
+
+.text-whiteText {
+  color: var(--color-whiteText);
+}
+
+.text-textColor {
+  color: var(--color-textColor);
+}
+
+.fill-grayIcon {
+  fill: var(--color-grayIcon);
+}
+
+.stroke-grayIcon {
+  stroke: var(--color-grayIcon);
+}
+
+.border-grayIcon {
+  border-color: var(--color-grayIcon);
+}
+
+.bg-darkbg {
+  background-color: var(--color-darkbg);
+} 

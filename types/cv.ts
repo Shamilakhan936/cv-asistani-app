@@ -6,6 +6,7 @@ export interface CVData {
     phone: string;
     location: string;
     website: string;
+    linkedin?: string;
   };
   summary: string;
   experience: Array<{

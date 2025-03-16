@@ -14,7 +14,7 @@ const categoryTranslations: Record<string, string> = {
 // Kategori sıralaması
 const categoryOrder = ['Tümü', 'Sade', 'Modern', 'Yaratıcı', 'Profesyonel'];
 
-// GET: Tüm aktif CV şablonlarını listele
+// GET: CV Şablonlarını listele
 export async function GET() {
   try {
     // Oturum kontrolü
@@ -23,28 +23,29 @@ export async function GET() {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Aktif şablonları getir
-    const templates = await prisma.$queryRaw`
-      SELECT * FROM cv_templates 
-      WHERE "isActive" = true 
-      ORDER BY category ASC
-    `;
+    // Manuel olarak Zarif şablonu oluştur
+    const elegantTemplate = {
+      id: 'elegant-template-1',
+      name: 'Zarif',
+      category: 'Modern',
+      displayCategory: 'Modern',
+      description: 'Güçlü yanlarınızı ve başarılarınızı vurgulayan, güzel tasarıma sahip, kompakt ve okunması kolay düzene sahip zarif şablon.',
+      previewUrl: '/images/cv-templates/elegant-preview.jpg', // Ön izleme görseli
+      isActive: true
+    };
 
-    // Şablonları işle ve kategorileri çevir
-    const processedTemplates = (templates as any[]).map(template => ({
-      ...template,
-      displayCategory: categoryTranslations[template.category] || template.category
-    }));
+    // Şablonlar dizisini oluştur (şimdilik sadece Zarif şablonu var)
+    const processedTemplates = [elegantTemplate];
 
     // Şablonları kategorilere göre grupla
     const grouped: Record<string, any[]> = {};
     
-    // Önce tüm kategorileri oluştur
+    // Tüm kategorileri oluştur, ancak boş diziler olarak
     categoryOrder.forEach(cat => {
       grouped[cat] = [];
     });
     
-    // Şablonları kendi kategorilerine ekle
+    // Şablonu kendi kategorisine ekle
     processedTemplates.forEach(template => {
       const category = template.displayCategory;
       if (grouped[category]) {
@@ -55,14 +56,9 @@ export async function GET() {
     // "Tümü" kategorisine tüm şablonları ekle
     grouped['Tümü'] = [...processedTemplates];
     
-    // Boş kategorileri filtrele
-    const filteredGrouped = Object.fromEntries(
-      Object.entries(grouped).filter(([_, templates]) => templates.length > 0)
-    );
-
     return NextResponse.json({ 
       templates: processedTemplates,
-      groupedTemplates: filteredGrouped
+      groupedTemplates: grouped
     });
   } catch (error) {
     console.error('Error fetching CV templates:', error);

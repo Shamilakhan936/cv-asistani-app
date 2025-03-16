@@ -114,12 +114,22 @@ const PamukkaleTemplate: React.FC<PamukkaleTemplateProps> = ({ data }) => {
       <section className="mb-8">
         <h2 className="text-[20px] font-semibold text-black border-b border-gray-300 pb-1 mb-3 text-center">BECERİLER</h2>
         <p className="text-[13px] text-gray-700">
-          {data.skills.map((skill, index) => (
-            <React.Fragment key={skill.id}>
-              {skill.name}
-              {index < data.skills.length - 1 && <span className="mx-2">•</span>}
-            </React.Fragment>
-          ))}
+          {Array.isArray(data.skills) 
+            ? data.skills.map((skill, index) => (
+                <React.Fragment key={skill.id || index}>
+                  {skill.name}
+                  {index < data.skills.length - 1 && <span className="mx-2">•</span>}
+                </React.Fragment>
+              ))
+            : typeof data.skills === 'string' 
+              ? data.skills.split(',').map((skill, index, array) => (
+                  <React.Fragment key={index}>
+                    {skill.trim()}
+                    {index < array.length - 1 && <span className="mx-2">•</span>}
+                  </React.Fragment>
+                ))
+              : null
+          }
         </p>
       </section>
 
