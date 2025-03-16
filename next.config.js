@@ -30,7 +30,7 @@ const nextConfig = {
     },
     mdxRs: true
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     config.resolve = {
       ...config.resolve,
       fallback: {
@@ -40,6 +40,20 @@ const nextConfig = {
         os: false
       }
     };
+    
+    // Exclude problematic modules
+    if (isServer) {
+      config.externals = [...config.externals, 'next-auth'];
+    }
+    
+    // Ignore specific API routes
+    config.plugins.push(
+      new config.webpack.NormalModuleReplacementPlugin(
+        /app\/api\/blog\/.*\.ts$/,
+        'next/dist/server/empty.js'
+      )
+    );
+    
     return config;
   },
   typescript: {
