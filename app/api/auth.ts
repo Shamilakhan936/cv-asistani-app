@@ -1,36 +1,38 @@
-import { NextAuthOptions } from 'next-auth';
-import { PrismaAdapter } from '@auth/prisma-adapter';
-import prisma from '@/lib/prisma';
-import GoogleProvider from 'next-auth/providers/google';
+// This file is now using Clerk for authentication
+import { currentUser } from '@clerk/nextjs';
 
-export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
-  ],
-  callbacks: {
-    async session({ session, user }) {
-      if (session.user) {
-        session.user.id = user.id;
-      }
-      return session;
-    },
-  },
-  pages: {
-    signIn: '/auth/signin',
-  },
-};
+// Helper function to get current user info
+export async function getCurrentUser() {
+  const user = await currentUser();
+  return { userId: user?.id };
+}
 
-declare module 'next-auth' {
-  interface Session {
-    user: {
-      id: string;
-      name?: string | null;
-      email?: string | null;
-      image?: string | null;
-    };
+// Helper function to check if user is authenticated
+export async function isAuthenticated() {
+  const user = await currentUser();
+  return !!user?.id;
+}
+
+// Types for user data
+export interface UserData {
+  id: string;
+  name?: string | null;
+  email?: string | null;
+  imageUrl?: string | null;
+}
+
+// Get user data helper
+export async function getUserData(): Promise<UserData | null> {
+  const user = await currentUser();
+  
+  if (!user) {
+    return null;
   }
+  
+  return {
+    id: user.id,
+    name: user.firstName ? `${user.firstName} ${user.lastName || ''}` : null,
+    email: user.emailAddresses[0]?.emailAddress || null,
+    imageUrl: user.imageUrl
+  };
 } 

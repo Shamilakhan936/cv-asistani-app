@@ -1,4 +1,5 @@
-app/admin/blog/edit/[slug]/page.tsx
-app/admin/blog/new/page.tsx
-app/auth/logout/page.tsx
-app/dashboard/photo/aiilefoto/page.tsx 
+app/admin/blog/
+app/auth/
+app/dashboard/photo/
+app/api/
+app/admin/blog/yeni/page.tsx 
