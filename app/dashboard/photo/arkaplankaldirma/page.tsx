@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@clerk/nextjs';
 
 export default function BackgroundRemovalPage() {
-  const { data: session, status } = useSession();
+  const { isLoaded, userId } = useAuth();
   const router = useRouter();
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | undefined>();
@@ -15,12 +15,12 @@ export default function BackgroundRemovalPage() {
   const [isDragging, setIsDragging] = useState(false);
 
   // Oturum kontrolü
-  if (status === 'loading') {
+  if (!isLoaded) {
     return <div className="container mx-auto p-8">Yükleniyor...</div>;
   }
 
-  if (!session) {
-    router.push('/auth/login');
+  if (!userId) {
+    router.push('/sign-in');
     return null;
   }
 

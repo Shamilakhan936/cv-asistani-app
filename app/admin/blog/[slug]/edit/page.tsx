@@ -25,7 +25,20 @@ export default function EditBlogPost({ params }: { params: { slug: string } }) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Update blog post logic here
+    try {
+      const response = await fetch(`/api/blog/${params.slug}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title, content }),
+      });
+
+      if (!response.ok) throw new Error('Failed to update post');
+      router.push('/admin/blog');
+    } catch (error) {
+      console.error('Error updating post:', error);
+    }
   };
 
   return (
