@@ -45,27 +45,27 @@ export default function EditBlogPost({ params }: { params: { slug: string } }) {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Blog Yazısını Düzenle</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
+          <div>
           <label className="block mb-2">Başlık</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             className="w-full p-2 border rounded"
-          />
-        </div>
-        <div>
+            />
+          </div>
+          <div>
           <label className="block mb-2">İçerik</label>
           <textarea
-            value={content}
+              value={content}
             onChange={(e) => setContent(e.target.value)}
             className="w-full p-2 border rounded h-40"
-          />
-        </div>
+            />
+          </div>
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
           Güncelle
-        </button>
-      </form>
+            </button>
+        </form>
     </div>
   );
 } 

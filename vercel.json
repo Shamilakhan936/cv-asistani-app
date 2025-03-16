@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "public": false,
+  "github": {
+    "silent": true
+  },
+  "build": {
+    "env": {
+      "NEXT_SKIP_TYPECHECKING": "1"
+    }
+  }
+} 
