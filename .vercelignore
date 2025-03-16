@@ -8,4 +8,5 @@ app/lider/
 components/
 app/admin/cv-templates/
 app/dashboard/cv/
-app/dashboard/cvs/ 
+app/dashboard/cvs/
+app/admin/cvs/ 
