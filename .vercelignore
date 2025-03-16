@@ -7,4 +7,5 @@ app/blog/
 app/lider/
 components/
 app/admin/cv-templates/
-app/dashboard/cv/ 
+app/dashboard/cv/
+app/dashboard/cvs/ 
