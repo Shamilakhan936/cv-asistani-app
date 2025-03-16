@@ -2,13 +2,13 @@
   "version": 2,
   "cleanUrls": true,
   "public": false,
-  "buildCommand": "npm run build || exit 0",
+  "buildCommand": "npm run build",
   "github": {
     "silent": true
   },
   "builds": [
     {
-      "src": "package.json", 
+      "src": "package.json",
       "use": "@vercel/next", 
       "config": {
         "skipBuildSteps": ["typecheck"],
@@ -19,7 +19,9 @@
   "build": {
     "env": {
       "NEXT_SKIP_TYPECHECKING": "1",
-      "NEXT_TELEMETRY_DISABLED": "1"
+      "NEXT_TELEMETRY_DISABLED": "1",
+      "NEXT_TYPESCRIPT_CHECK": "0",
+      "NODE_ENV": "production"
     }
   }
 } 
