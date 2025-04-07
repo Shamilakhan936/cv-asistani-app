@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/prisma';
 import { put } from '@vercel/blob';
-
+export const dynamic = 'force-dynamic';
 export async function POST(request: Request) {
   try {
     const session = await auth();

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import prisma from '@/lib/prisma';
-import { BlogCard } from '@/components/blog/BlogCard';
+// import { BlogCard } from '@/components/blog/BlogCard';
 import Link from 'next/link';
 
 interface BlogPost {
@@ -108,9 +108,9 @@ export default async function BlogPage({
       ) : (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
+            {/* {posts.map((post) => (
               <BlogCard key={post.id} post={post} />
-            ))}
+            ))} */}
           </div>
 
           {/* Sayfalama */}

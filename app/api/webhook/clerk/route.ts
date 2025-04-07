@@ -1,8 +1,7 @@
-import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { Webhook, WebhookRequiredHeaders } from 'svix';
 import { supabaseAdmin } from '@/lib/supabase';
-
+export const dynamic = 'force-dynamic';
 interface EmailAddress {
   id: string;
   email_address: string;
@@ -17,11 +16,10 @@ export async function POST(req: Request) {
       throw new Error('Please add CLERK_WEBHOOK_SECRET from Clerk Dashboard to .env');
     }
 
-    // Request headers
-    const headersList = headers();
-    const svix_id = headersList.get("svix-id");
-    const svix_timestamp = headersList.get("svix-timestamp");
-    const svix_signature = headersList.get("svix-signature");
+    // Get headers directly from the request instead of using headers()
+    const svix_id = req.headers.get("svix-id");
+    const svix_timestamp = req.headers.get("svix-timestamp");
+    const svix_signature = req.headers.get("svix-signature");
 
     // If there are no headers, error out
     if (!svix_id || !svix_timestamp || !svix_signature) {
@@ -177,4 +175,4 @@ export async function POST(req: Request) {
     console.error('Webhook error:', error);
     return new Response('Webhook error', { status: 400 });
   }
-} 
+}

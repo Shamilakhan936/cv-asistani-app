@@ -1,5 +1,5 @@
 // This file is now using Clerk for authentication
-import { currentUser } from '@clerk/nextjs';
+import { currentUser } from "@clerk/nextjs/server"
 
 // Helper function to get current user info
 export async function getCurrentUser() {

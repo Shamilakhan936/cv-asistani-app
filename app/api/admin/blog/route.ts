@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import slugify from 'slugify';
-
+export const dynamic = 'force-dynamic';
 // Blog yazısı oluşturma
 export async function POST(req: Request) {
   try {

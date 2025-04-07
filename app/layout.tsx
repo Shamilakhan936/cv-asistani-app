@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Inter, Sora } from 'next/font/google';
 import "./globals.css";
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import { trTR } from '@clerk/localizations';
@@ -13,6 +13,7 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://cvasistani.com'),
   title: "CV Asistanı",
   description: "AI destekli CV oluşturma ve düzenleme platformu",
   keywords: ["CV hazırlama", "yapay zeka CV", "özgeçmiş oluşturma", "CV optimizasyonu", "iş başvurusu"],

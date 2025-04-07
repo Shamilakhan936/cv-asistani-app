@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
-
+export const dynamic = 'force-dynamic';
 export async function GET(req: NextRequest, { params }: { params: { templateId: string } }) {
   try {
     // Kullanıcı kimlik doğrulaması

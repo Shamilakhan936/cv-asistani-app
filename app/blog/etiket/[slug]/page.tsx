@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import prisma from '@/lib/prisma';
-import { BlogCard } from '@/components/blog/BlogCard';
+// import { BlogCard } from '@/components/blog/BlogCard';
 import { Tag } from 'lucide-react';
 
 interface Props {
@@ -141,9 +141,9 @@ export default async function TagPage({ params, searchParams }: Props) {
       {posts.length > 0 ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {posts.map((post: BlogPost) => (
+            {/* {posts.map((post: BlogPost) => (
               <BlogCard key={post.id} post={post} />
-            ))}
+            ))} */}
           </div>
 
           {/* Sayfalama */}

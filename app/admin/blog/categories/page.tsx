@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { format } from 'date-fns';
 import { tr } from 'date-fns/locale';
 import prisma from '@/lib/prisma';
+export const dynamic = 'force-dynamic';
 
 interface Category {
   id: string;
