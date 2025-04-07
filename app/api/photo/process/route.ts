@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../../auth/[...nextauth]/auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/auth';
 import Replicate from 'replicate';
 import sharp from 'sharp';
 import { v2 as cloudinary } from 'cloudinary';
 import { Gender, MaleClothing, FemaleClothing, Pose, Background } from '../../../types/photo';
-
+export const dynamic = 'force-dynamic';
 // Cloudinary yapılandırması
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

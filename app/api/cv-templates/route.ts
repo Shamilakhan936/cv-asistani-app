@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { auth } from '@clerk/nextjs/server';
+export const dynamic = 'force-dynamic';
+// Add this line to fix the error
 
 // Kategori çevirileri
 const categoryTranslations: Record<string, string> = {
@@ -64,4 +66,4 @@ export async function GET() {
     console.error('Error fetching CV templates:', error);
     return NextResponse.json({ error: 'Failed to fetch CV templates' }, { status: 500 });
   }
-} 
+}

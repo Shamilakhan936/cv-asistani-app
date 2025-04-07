@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import prisma from '@/lib/prisma';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-
+import { authOptions } from '@/app/api/auth/[...nextauth]/auth';
+export const dynamic = 'force-dynamic';
 // Yayınlanmış blog yazılarını getir
 export async function GET(request: Request) {
   try {

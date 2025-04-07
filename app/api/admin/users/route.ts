@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
 import { requireAdmin } from '@/lib/auth';
-
+export const dynamic = 'force-dynamic';
 interface User {
   id: string;
   name: string | null;

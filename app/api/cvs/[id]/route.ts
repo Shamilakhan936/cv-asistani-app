@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { auth } from '@clerk/nextjs/server';
-
+export const dynamic = 'force-dynamic';
 // GET: Belirli bir CV'yi getir
 export async function GET(
   request: Request,

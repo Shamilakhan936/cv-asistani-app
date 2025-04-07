@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-
+export const dynamic = 'force-dynamic';
 const SETUP_SECRET = process.env.SETUP_SECRET;
 
 export async function POST(request: Request) {

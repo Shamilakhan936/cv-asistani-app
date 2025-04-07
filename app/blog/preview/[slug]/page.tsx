@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import prisma from '@/lib/prisma';
 import { calculateReadingTime } from '@/lib/readingTime';
 import { Clock } from 'lucide-react';
-import { ShareButtons } from '../../../../components/blog/ShareButtons';
+import { ShareButtons } from '@/components/blog/ShareButtons';
 
 interface BlogPost {
   title: string;

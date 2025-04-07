@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { randomUUID } from 'crypto';
-
+export const dynamic = 'force-dynamic';
 // Şablon arayüzü
 interface CVTemplate {
   id: string;

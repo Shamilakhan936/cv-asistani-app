@@ -3,7 +3,7 @@ import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/prisma';
 import { randomUUID } from 'crypto';
 import { logger } from '@/lib/logger';
-
+export const dynamic = 'force-dynamic';
 export async function POST(request: Request) {
   try {
     logger.info('Yeni fotoğraf yükleme isteği alındı');

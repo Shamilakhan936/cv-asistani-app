@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "baseUrl": ".", 
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,8 +19,8 @@
         "name": "next"
       }
     ],
-    "paths": {
-      "@/*": ["./*"]
+   "paths": {
+      "@/*": ["src/*", "./*"] 
     },
     "forceConsistentCasingInFileNames": true
   },

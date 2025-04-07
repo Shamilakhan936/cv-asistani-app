@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { auth } from '@clerk/nextjs/server';
 import { randomUUID } from 'crypto';
-
+export const dynamic = 'force-dynamic';
 // CV şablonları
 const templates = [
   // Sade Şablonlar
