@@ -648,7 +648,6 @@ export default function Home() {
 
         <div className="hidden sm:block md:hidden lg:block flex-1">
           <div className="flex justify-end gap-4 mb-4">
-            {/* Preview Button for Tablet View Only */}
             <button
               onClick={() => setShowTabletPreviewModal(true)}
               className="hidden sm:flex md:hidden px-4 py-2 bg-[#1a4977] text-white rounded-md hover:bg-[#153a5f] transition-colors items-center justify-center gap-2"
@@ -693,6 +692,19 @@ export default function Home() {
               certifications={currentTemplateData?.certifications}
               projects={currentTemplateData?.projects}
               passion={currentTemplateData?.passion}
+              profileImage={profileImage}
+              templateId={selectedTemplateId}
+            />
+            <ResumeWrapper
+              header={currentTemplateData.header}
+              experience={currentTemplateData.experience}
+              education={currentTemplateData.education}
+              languages={currentTemplateData.languages}
+              skills={currentTemplateData.skills}
+              achievements={currentTemplateData.achievements}
+              certifications={currentTemplateData.certifications}
+              projects={currentTemplateData.projects}
+              passion={currentTemplateData.passion}
               profileImage={profileImage}
               templateId={selectedTemplateId}
             />

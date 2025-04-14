@@ -13,6 +13,7 @@ interface ExperienceItem {
   description: string[];
 }
 
+
 const NEW_EXPERIENCE: Omit<ExperienceItem, 'id'> = {
   title: '',
   company: '',
@@ -44,7 +45,7 @@ const AddExperience = ({ isEmpty, onAddExperience }: AddExperienceProps) => {
         onClick={onAddExperience}
         className="flex items-center"
       >
-        <PlusIcon className="h-4 w-4 mr-2" />
+        <PlusIcon className="h-4 w-4 mr-1" />
         {buttonCaption}
       </Button>
     </div>
