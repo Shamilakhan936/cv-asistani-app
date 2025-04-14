@@ -13,9 +13,9 @@ export default function Skills({ data }: SkillsProps) {
   return (
     <div className="">
       {data.map((category) => (
-        <div key={category.id} className="p-4  ">
+        <div key={category.id} className="py-4  ">
           {/* <h3 className="text-lg font-semibold text-black mb-2">{category.name}</h3> */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-[12px]">
             {category.skills.map((skill, index) => (
               <span key={index} className="px-2 py-1 text-sm border-b-2 border-gray-400">
                 {skill}

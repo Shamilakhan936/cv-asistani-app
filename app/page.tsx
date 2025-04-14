@@ -272,7 +272,7 @@ export default function Home() {
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6 bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#d946ef] inline-block text-transparent bg-clip-text">
                 Yapay Zeka ile Mükemmel CV'ler Oluşturun
-          </h1>
+            </h1>
               <p className="mt-6 text-xl text-gray-600 leading-relaxed">
                 İş başvurularınız için tam paket çözüm: AI portre stüdyosu ile profesyonel fotoğraflar, ATS onaylı CV şablonları ve iş ilanına özel akıllı optimizasyonlar.
               </p>
