@@ -13,6 +13,8 @@ import { DefaultThumbnail, ModernThumbnail, MinimalThumbnail } from './thumbnail
 import ProfessionalThumbnail from './thumbnails/ProfessionalThumbnail';
 import SingleColumnTemplate from './SingleColumn';
 import SoftwareTemplate from './SoftwareTemplate';
+import AccountTemplate from './AccountTemplate';
+import ProductManagerTemplate from './ProductManager';
 
 // Template registry - add new templates here
 export const TEMPLATES = [
@@ -64,6 +66,19 @@ export const TEMPLATES = [
     name: "software Template",
     component: SoftwareTemplate,
     thumbnailComponent: ProfessionalThumbnail,
+  },
+
+  {
+    id: "account",
+    name: "account Template",
+    component: AccountTemplate,
+    thumbnailComponent: MinimalThumbnail,
+  },
+  {
+    id: "product",
+    name: "Product Manager Template",
+    component: ProductManagerTemplate,
+    thumbnailComponent: MinimalThumbnail,
   },
 ]
 
