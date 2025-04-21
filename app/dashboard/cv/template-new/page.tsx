@@ -276,6 +276,7 @@ export default function Home() {
       projects: initialProjects,
       passion: initialPassion,
     },
+
     singleColumn: {
       header: {
         name: "Johnathan Alexander Doe",
@@ -310,6 +311,7 @@ export default function Home() {
       projects: initialProjects,
       passion: initialPassion,
     },
+
     software: {
       header: {
         name: "Johnathan Alexander Doe",
@@ -344,6 +346,7 @@ export default function Home() {
       projects: initialProjects,
       passion: initialPassion,
     },
+
     product: {
       header: {
         name: "Johnathan Alexander Doe",
@@ -413,7 +416,150 @@ export default function Home() {
       projects: initialProjects,
       passion: initialPassion,
     },
+
+    LeagueAndLogos: {
+      header: {
+        name: "Johnathan Alexander Doe",
+        title: "Senior Full Stack Developer",
+        role: "Senior Full Stack Developer",
+        phone: "+1 800 555 1234",
+        email: "john.doe@example.com",
+        github: "https://github.com/john-doe",
+        location: "San Francisco, CA, USA",
+        summary:
+          "Experienced Full Stack Developer with a proven track record in developing scalable web applications and leading development teams. Proficient in modern web technologies and best practices.",
+        image: "",
+      },
+      experience: initialExperience,
+      education: initialEducation,
+      languages: initialLanguages,
+      skills: initialSkills.map((category) => ({
+        ...category,
+        name:
+          category.id === 1
+            ? "Backend & DevOps"
+            : category.id === 2
+              ? "Frontend & JavaScript"
+              : category.id === 3
+                ? "Databases"
+                : category.id === 5
+                  ? "Mobile Development"
+                  : "Other",
+      })),
+      achievements: initialAchievements,
+      certifications: initialCertifications,
+      projects: initialProjects,
+      passion: initialPassion,
+    },
+
+    simple: {
+      header: {
+        name: "Johnathan Alexander Doe",
+        title: "Senior Full Stack Developer",
+        role: "Senior Full Stack Developer",
+        phone: "+1 800 555 1234",
+        email: "john.doe@example.com",
+        github: "https://github.com/john-doe",
+        location: "San Francisco, CA, USA",
+        summary:
+          "Experienced Full Stack Developer with a proven track record in developing scalable web applications and leading development teams. Proficient in modern web technologies and best practices.",
+        image: "",
+      },
+      experience: initialExperience,
+      education: initialEducation,
+      languages: initialLanguages,
+      skills: initialSkills.map((category) => ({
+        ...category,
+        name:
+          category.id === 1
+            ? "Backend & DevOps"
+            : category.id === 2
+              ? "Frontend & JavaScript"
+              : category.id === 3
+                ? "Databases"
+                : category.id === 5
+                  ? "Mobile Development"
+                  : "Other",
+      })),
+      achievements: initialAchievements,
+      certifications: initialCertifications,
+      projects: initialProjects,
+      passion: initialPassion,
+    },
+    creative: {
+      header: {
+        name: "Johnathan Alexander Doe",
+        title: "Senior Full Stack Developer",
+        role: "Senior Full Stack Developer",
+        phone: "+1 800 555 1234",
+        email: "john.doe@example.com",
+        github: "https://github.com/john-doe",
+        location: "San Francisco, CA, USA",
+        summary:
+          "Experienced Full Stack Developer with a proven track record in developing scalable web applications and leading development teams. Proficient in modern web technologies and best practices.",
+        image: "",
+      },
+      experience: initialExperience,
+      education: initialEducation,
+      languages: initialLanguages,
+      skills: initialSkills.map((category) => ({
+        ...category,
+        name:
+          category.id === 1
+            ? "Backend & DevOps"
+            : category.id === 2
+              ? "Frontend & JavaScript"
+              : category.id === 3
+                ? "Databases"
+                : category.id === 5
+                  ? "Mobile Development"
+                  : "Other",
+      })),
+      achievements: initialAchievements,
+      certifications: initialCertifications,
+      projects: initialProjects,
+      passion: initialPassion,
+    },
+    
+    teacher: {
+      header: {
+        name: "Johnathan Alexander Doe",
+        title: "Senior Full Stack Developer",
+        role: "Senior Full Stack Developer",
+        phone: "+1 800 555 1234",
+        email: "john.doe@example.com",
+        github: "https://github.com/john-doe",
+        location: "San Francisco, CA, USA",
+        summary:
+          "Experienced Full Stack Developer with a proven track record in developing scalable web applications and leading development teams. Proficient in modern web technologies and best practices.",
+        image: "",
+      },
+      experience: initialExperience,
+      education: initialEducation,
+      languages: initialLanguages,
+      skills: initialSkills.map((category) => ({
+        ...category,
+        name:
+          category.id === 1
+            ? "Backend & DevOps"
+            : category.id === 2
+              ? "Frontend & JavaScript"
+              : category.id === 3
+                ? "Databases"
+                : category.id === 5
+                  ? "Mobile Development"
+                  : "Other",
+      })),
+      achievements: initialAchievements,
+      certifications: initialCertifications,
+      projects: initialProjects,
+      passion: initialPassion,
+    },
   })
+
+
+
+
 
   // Get current template data
   const currentTemplateData = templateData[selectedTemplateId]

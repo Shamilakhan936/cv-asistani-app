@@ -17,27 +17,58 @@ const iconMap: { [key in IconType]: React.ReactNode } = {
 
 interface AchievementsProps {
   data: Achievement[];
-  border?: boolean; 
+  border?: boolean;
+  textStyle?: {
+    title?: {
+      fontSize?: string;
+      color?: string;
+      fontFamily?: string;
+    };
+    description?: {
+      fontSize?: string;
+      color?: string;
+      fontFamily?: string;
+    };
+  };
 }
 
-export default function Achievements({ data, border = true }: AchievementsProps) {
+export default function Achievements({ data, border = true, textStyle }: AchievementsProps) {
   if (!data || data.length === 0) return null;
 
   return (
     <div className="space-y-4 text-[#235986] mt-[8px]">
       {data.map((achievement) => (
         <div 
-          key={achievement.id} 
-          className={`flex text-[#235986] items-start gap-3 py-2 ${
+          key={achievement.id}
+          className={`flex items-start gap-3 py-2 ${
             border ? "border-b-2 border-dashed border-[#ccc]" : ""
           }`}
         >
           <span className="text-lg text-black mt-[5px]">
-            {iconMap[achievement.icon as IconType] || <GiDiamondTrophy className="mr-2 w-[30px] h-[30px] text-[#F5F5F5]" />}
+            {iconMap[achievement.icon as IconType] || (
+              <GiDiamondTrophy className="mr-2 w-[30px] h-[30px] text-[#F5F5F5]" />
+            )}
           </span>
           <div>
-            <h4 className="font-medium text-[#235986] text-[16px] font-semibold">{achievement.title}</h4>
-            <p className="text-black text-[13px]">{achievement.description}</p>
+            <h4
+              style={{
+                fontSize: textStyle?.title?.fontSize || "16px",
+                color: textStyle?.title?.color || "#235986",
+                fontFamily: textStyle?.title?.fontFamily || "inherit",
+              }}
+              className="font-medium"
+            >
+              {achievement.title}
+            </h4>
+            <p
+              style={{
+                fontSize: textStyle?.description?.fontSize || "13px",
+                color: textStyle?.description?.color || "#000000",
+                fontFamily: textStyle?.description?.fontFamily || "inherit",
+              }}
+            >
+              {achievement.description}
+            </p>
           </div>
         </div>
       ))}

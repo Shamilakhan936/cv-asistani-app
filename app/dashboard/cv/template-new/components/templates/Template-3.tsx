@@ -95,7 +95,7 @@ const Template3: FC<TemplateProps> = ({
                 <h2 className="text-[#65696d] text-[22px] font-semibold uppercase border-b-[2px] border-[#65696d80]  mb-[8px]">
                   Skills
                 </h2>
-                <SkillsMain data={skills} />
+                <SkillsMain data={skills} textSize={{ small: 'text-[14px]' }}  />
               </div>
 
               <div className="mb-6">

@@ -130,7 +130,7 @@ const SingleColumnTemplate: FC<TemplateProps> = ({
               Skills
             </h2>
             <div className="border-t-[3px] border-t-black pt-[8px]">
-              <SkillsMain data={skills} />
+              <SkillsMain data={skills} textSize={{ small: 'text-[14px]' }} />
             </div>
           </div>
             {/* language section */}

@@ -82,7 +82,7 @@ const DefaultTemplate: FC<TemplateProps> = ({
                 <h2 className="text-white text-[18px] uppercase font-medium border-b border-opacity-30 border-white pb-2 mb-4">
                   PROJECTS
                 </h2>
-                <Projects data={projects} />
+                <Projects data={projects} color={{ title: 'text-white', description: 'text-white' }} textSize={{ title: 'text-2xl', description: 'text-base' }} />
               </div>
               
               <div className="section mt-8" data-section="passions">

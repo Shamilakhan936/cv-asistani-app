@@ -15,6 +15,10 @@ import SingleColumnTemplate from './SingleColumn';
 import SoftwareTemplate from './SoftwareTemplate';
 import AccountTemplate from './AccountTemplate';
 import ProductManagerTemplate from './ProductManager';
+import LeagueTemplate from './IvyLeagueTemplate';
+import SimpleTemplate from './SimpleTemplate';
+import StylishTemplate from './StylishTemplate';
+import TeacherTemplate from './TeacherTemplate';
 
 // Template registry - add new templates here
 export const TEMPLATES = [
@@ -75,16 +79,40 @@ export const TEMPLATES = [
     thumbnailComponent: MinimalThumbnail,
   },
   {
+    id: "LeagueAndLogos",
+    name: "Ivy League with Logos Template",
+    component: LeagueTemplate,
+    thumbnailComponent: MinimalThumbnail,
+  },
+  {
     id: "product",
     name: "Product Manager Template",
     component: ProductManagerTemplate,
     thumbnailComponent: MinimalThumbnail,
   },
+  {
+    id: "simple",
+    name: "simple Template",
+    component: SimpleTemplate,
+    thumbnailComponent: ProfessionalThumbnail,
+  },
+  {
+    id: "creative",
+    name: "Stylish Template",
+    component: StylishTemplate,
+    thumbnailComponent: ProfessionalThumbnail,
+  },
+  
+  {
+    id: "teacher",
+    name: "teacher Template",
+    component: TeacherTemplate,
+    thumbnailComponent: ProfessionalThumbnail,
+  },
 ]
 
 export type TemplateId = "default" | "modern" | "template3" | "minimal" | "professional" | "classic"
 
-// Helper function to get template by ID
 export function getTemplateById(id: TemplateId) {
   const template = TEMPLATES.find((template) => template.id === id)
   if (!template) {
