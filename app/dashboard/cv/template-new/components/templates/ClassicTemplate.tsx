@@ -160,6 +160,12 @@ const ClassicTemplate: FC<TemplateProps> = ({
 )}
 
 {/* language section */}
+
+
+       <h2 className="text-[16px] leading-[19px] font-semibold text-[#65696d] text-start uppercase mb-2 pb-1">
+       Languages
+        </h2>
+
           {certifications && certifications.length > 0 && (
          <div className="mb-[8px]">
         <div className="space-y-4" data-section="languages">

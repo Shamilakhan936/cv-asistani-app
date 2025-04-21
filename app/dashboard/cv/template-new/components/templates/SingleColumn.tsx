@@ -134,6 +134,9 @@ const SingleColumnTemplate: FC<TemplateProps> = ({
             </div>
           </div>
             {/* language section */}
+            <h2 className="text-[22px] border-b-[3px] border-b-black pb-[8px]  leading-[16px] font-semibold text-[#19273c] text-start uppercase mb-[7px]">
+            Languages
+            </h2>
           {certifications && certifications.length > 0 && (
          <div className="mb-[8px]">
         <div className="space-y-4" data-section="languages">

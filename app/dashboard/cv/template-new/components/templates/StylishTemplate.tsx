@@ -116,6 +116,7 @@ const StylishTemplate: FC<TemplateProps> = ({
   }}
 />
               </div>
+              <h2 className="text-[18px] text-[#65696d] uppercase font-medium border-b-[3px]  border-[#65696d80] mb-2">Languages</h2>
               <div className="mt-4" data-section="languages">
                 <Languages data={languages} />
               </div>

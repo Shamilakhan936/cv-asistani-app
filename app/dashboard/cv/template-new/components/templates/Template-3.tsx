@@ -74,7 +74,7 @@ const Template3: FC<TemplateProps> = ({
 
               <div className="mt-4" data-section="languages">
               
-
+              <h2 className="text-[#65696d] text-[22px] font-semibold uppercase border-b-[2px] border-[#65696d80]  mb-[8px]">Languages</h2>
                 <Languages data={languages} />
               </div>
             </div>

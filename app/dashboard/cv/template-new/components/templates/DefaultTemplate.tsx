@@ -53,6 +53,8 @@ const DefaultTemplate: FC<TemplateProps> = ({
               </div>
 
               <div className="left-section mt-4" data-section="languages">
+              <h2 className="text-[18px] font-semibold uppercase  max-sm:font-bold text-[#384347] border-b-[1px] border-[#bdbdbd] pb-[5px]">languages
+                </h2>
                 <Languages data={languages} />
               </div>
             </div>

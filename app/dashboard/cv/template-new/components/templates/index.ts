@@ -19,6 +19,7 @@ import LeagueTemplate from './IvyLeagueTemplate';
 import SimpleTemplate from './SimpleTemplate';
 import StylishTemplate from './StylishTemplate';
 import TeacherTemplate from './TeacherTemplate';
+import DoubleColumn from './DoubleColoumn';
 
 // Template registry - add new templates here
 export const TEMPLATES = [
@@ -107,6 +108,12 @@ export const TEMPLATES = [
     id: "teacher",
     name: "teacher Template",
     component: TeacherTemplate,
+    thumbnailComponent: ProfessionalThumbnail,
+  },
+  {
+    id: "double",
+    name: "Double Coloumn",
+    component: DoubleColumn,
     thumbnailComponent: ProfessionalThumbnail,
   },
 ]

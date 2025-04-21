@@ -11,7 +11,6 @@ export default function Languages({ data }: LanguagesProps) {
 
   return (
     <div className="space-y-4 w-full">
-      <h2 className="text-[18px] font-medium max-sm:font-bold text-[#65696d] uppercase border-b-[3px] border-[#65696d80] mb-2">languages</h2>
 
       {data.map((language, index) => (
         <div key={index} className="flex items-center justify-between w-full">
